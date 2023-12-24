@@ -3,29 +3,29 @@
 class CreateDoorkeeperTables < ActiveRecord::Migration[7.1]
   def change
     create_table :oauth_applications do |t|
-      t.string  :name,    null: false
-      t.string  :uid,     null: false
-      t.string  :secret,  null: false
+      t.string :name, null: false
+      t.string :uid, null: false
+      t.string :secret, null: false
 
       # Remove `null: false` if you are planning to use grant flows
       # that doesn't require redirect URI to be used during authorization
       # like Client Credentials flow or Resource Owner Password.
-      t.text    :redirect_uri, null: false
-      t.string  :scopes,       null: false, default: ''
+      t.text :redirect_uri, null: false
+      t.string :scopes, null: false, default: ""
       t.boolean :confidential, null: false, default: true
-      t.timestamps             null: false
+      t.timestamps null: false
     end
 
     add_index :oauth_applications, :uid, unique: true
 
     create_table :oauth_access_grants do |t|
-      t.references :resource_owner,  null: false
-      t.references :application,     null: false
-      t.string   :token,             null: false
-      t.integer  :expires_in,        null: false
-      t.text     :redirect_uri,      null: false
-      t.string   :scopes,            null: false, default: ''
-      t.datetime :created_at,        null: false
+      t.references :resource_owner, null: false
+      t.references :application, null: false
+      t.string :token, null: false
+      t.integer :expires_in, null: false
+      t.text :redirect_uri, null: false
+      t.string :scopes, null: false, default: ""
+      t.datetime :created_at, null: false
       t.datetime :revoked_at
     end
 
@@ -51,9 +51,9 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[7.1]
       # t.text :token, null: false
       t.string :token, null: false
 
-      t.string   :refresh_token
-      t.integer  :expires_in
-      t.string   :scopes
+      t.string :refresh_token
+      t.integer :expires_in
+      t.string :scopes
       t.datetime :created_at, null: false
       t.datetime :revoked_at
 
@@ -70,7 +70,7 @@ class CreateDoorkeeperTables < ActiveRecord::Migration[7.1]
       #
       # Comment out this line if you want refresh tokens to be instantly
       # revoked after use.
-      t.string   :previous_refresh_token, null: false, default: ""
+      t.string :previous_refresh_token, null: false, default: ""
     end
 
     add_index :oauth_access_tokens, :token, unique: true
