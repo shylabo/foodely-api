@@ -75,15 +75,11 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    ast (2.4.2)
     base64 (0.2.0)
-    bcrypt (3.1.20)
     bigdecimal (3.1.5)
+    bootsnap (1.17.0)
+      msgpack (~> 1.2)
     builder (3.2.4)
-    bullet (7.1.4)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.11)
-    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -91,21 +87,9 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    diff-lcs (1.5.0)
-    doorkeeper (5.6.8)
-      railties (>= 5)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
-    factory_bot (6.4.2)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.2)
-      factory_bot (~> 6.4)
-      railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -114,13 +98,6 @@ GEM
     irb (1.11.0)
       rdoc
       reline (>= 0.3.8)
-    json (2.7.1)
-    jsonapi-resources (0.10.7)
-      activerecord (>= 4.1)
-      concurrent-ruby
-      railties (>= 4.1)
-    language_server-protocol (3.17.0.3)
-    lint_roller (1.1.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -132,6 +109,7 @@ GEM
     marcel (1.0.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.9)
       date
@@ -143,23 +121,24 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.15.5-arm64-darwin)
+    nokogiri (1.16.0-aarch64-linux)
       racc (~> 1.4)
-    parallel (1.24.0)
-    parser (3.2.2.4)
-      ast (~> 2.4.1)
-      racc
-    pg (1.5.4)
+    nokogiri (1.16.0-arm-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.0-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.0-x86-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
+      racc (~> 1.4)
     psych (5.1.2)
       stringio
     puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.8)
-    rack-attack (6.7.0)
-      rack (>= 1.0, < 4)
-    rack-cors (2.0.1)
-      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -196,70 +175,23 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
-    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
-    regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
-    rexml (3.2.6)
-    rspec-core (3.12.2)
-      rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.3)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.6)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.12.0)
-    rspec-rails (6.1.0)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      railties (>= 6.1)
-      rspec-core (~> 3.12)
-      rspec-expectations (~> 3.12)
-      rspec-mocks (~> 3.12)
-      rspec-support (~> 3.12)
-    rspec-support (3.12.1)
-    rspec_junit_formatter (0.6.0)
-      rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (1.57.2)
-      json (~> 2.3)
-      language_server-protocol (>= 3.17.0)
-      parallel (~> 1.10)
-      parser (>= 3.2.2.4)
-      rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.28.1, < 2.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.30.0)
-      parser (>= 3.2.1.0)
-    rubocop-performance (1.19.1)
-      rubocop (>= 1.7.0, < 2.0)
-      rubocop-ast (>= 0.4.0)
-    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    standard (1.32.1)
-      language_server-protocol (~> 3.17.0.2)
-      lint_roller (~> 1.0)
-      rubocop (~> 1.57.2)
-      standard-custom (~> 1.0.0)
-      standard-performance (~> 1.2)
-    standard-custom (1.0.2)
-      lint_roller (~> 1.0)
-      rubocop (~> 1.50)
-    standard-performance (1.2.1)
-      lint_roller (~> 1.1)
-      rubocop-performance (~> 1.19.1)
+    sqlite3 (1.7.0-aarch64-linux)
+    sqlite3 (1.7.0-arm-linux)
+    sqlite3 (1.7.0-arm64-darwin)
+    sqlite3 (1.7.0-x86-linux)
+    sqlite3 (1.7.0-x86_64-darwin)
+    sqlite3 (1.7.0-x86_64-linux)
     stringio (3.1.0)
     thor (1.3.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.5.0)
-    uniform_notifier (1.16.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -267,28 +199,23 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  arm64-darwin-21
+  aarch64-linux
+  arm-linux
+  arm64-darwin
+  x86-linux
+  x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
-  bcrypt
-  bullet
-  coderay
+  bootsnap
   debug
-  doorkeeper
-  dotenv-rails
-  factory_bot_rails
-  jsonapi-resources
-  pg (~> 1.1)
   puma (>= 5.0)
-  rack-attack
-  rack-cors
   rails (~> 7.1.2)
-  rspec-rails
-  rspec_junit_formatter
-  standard
+  sqlite3 (~> 1.4)
+  tzinfo-data
 
 RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.10
+   2.5.3
