@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# =============================
+# Country
+# =============================
 countries = [
   { slug: 'ca', name: 'canada', label: 'Canada', flag: '🇨🇦' },
   { slug: 'us', name: 'united_states', label: 'United States', flag: '🇺🇸' },
@@ -42,6 +45,9 @@ countries.each do |country|
   Country.create(country)
 end
 
+# =============================
+# City
+# =============================
 cities = [
   { country_code: 'ca', slug: 'vancouver', label: 'Vancouver'},
   { country_code: 'ca', slug: 'calgary', label: 'Calgary'},
@@ -53,4 +59,147 @@ cities = [
 
 cities.each do |city|
   City.create(city)
+end
+
+# =============================
+# Category
+# =============================
+categories = [
+  {
+    slug: 'african',
+    label: 'African',
+    image_url: 'https://plus.unsplash.com/premium_photo-1695297515151-b2af3a60008d',
+  },
+  {
+    slug: 'asian',
+    label: 'Asian',
+    image_url: 'https://images.unsplash.com/photo-1622643944007-450264a5f9a9',
+  },
+  {
+    slug: 'american',
+    label: 'American',
+    image_url: 'https://plus.unsplash.com/premium_photo-1672242676665-39db88975682',
+  },
+  {
+    slug: 'british',
+    label: 'British',
+    image_url: 'https://images.unsplash.com/photo-1583815950467-e7b26a5b56b3',
+  },
+  {
+    slug: 'cajun',
+    label: 'Cajun',
+    image_url: 'https://images.unsplash.com/photo-1445979323117-80453f573b71',
+  },
+  {
+    slug: 'caribbean',
+    label: 'Caribbean',
+    image_url:
+      'https://images.unsplash.com/photo-1575950674322-3a1977724f2e',
+  },
+  {
+    slug: 'chinese',
+    label: 'Chinese',
+    image_url:
+      'https://images.unsplash.com/photo-1563245372-f21724e3856d',
+  },
+  {
+    slug: 'french',
+    label: 'French',
+    image_url:
+      'https://images.unsplash.com/photo-1477747219299-60f95c811fef',
+  },
+  {
+    slug: 'german',
+    label: 'German',
+    image_url:
+      'https://plus.unsplash.com/premium_photo-1661313627982-615bb6576cc5',
+  },
+  {
+    slug: 'greek',
+    label: 'Greek',
+    image_url:
+      'https://plus.unsplash.com/premium_photo-1670263780110-29dd7a136a51',
+  },
+  {
+    slug: 'indian',
+    label: 'Indian',
+    image_url:
+      'https://images.unsplash.com/photo-1625398407796-82650a8c135f',
+  },
+  {
+    slug: 'irish',
+    label: 'Irish',
+    image_url:
+      'https://images.unsplash.com/photo-1513271224036-f526ad664968',
+  },
+  {
+    slug: 'italian',
+    label: 'Italian',
+    image_url:
+      'https://images.unsplash.com/photo-1604068549290-dea0e4a305ca',
+  },
+  {
+    slug: 'japanese',
+    label: 'Japanese',
+    image_url:
+      'https://plus.unsplash.com/premium_photo-1679862071390-5b6bffa48a2a',
+  },
+  {
+    slug: 'korean',
+    label: 'Korean',
+    image_url:
+      'https://images.unsplash.com/photo-1498654896293-37aacf113fd9',
+  },
+  {
+    slug: 'mediterranean',
+    label: 'Mediterranean',
+    image_url:
+      'https://images.unsplash.com/photo-1554998171-89445e31c52b',
+  },
+  {
+    slug: 'mexican',
+    label: 'Mexican',
+    image_url:
+      'https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c',
+  },
+  {
+    slug: 'middle_eastern',
+    label: 'Middle Eastern',
+    image_url:
+      'https://images.unsplash.com/photo-1520252729650-ddced2015543',
+  },
+  {
+    slug: 'nordic',
+    label: 'Nordic',
+    image_url:
+      'https://images.unsplash.com/photo-1657299156537-f4bcdced5392',
+  },
+  {
+    slug: 'southern',
+    label: 'Southern',
+    image_url:
+      'https://images.unsplash.com/photo-1605926637412-b0cd5a3e3543',
+  },
+  {
+    slug: 'spanish',
+    label: 'Spanish',
+    image_url:
+      'https://images.unsplash.com/photo-1515443961218-a51367888e4b',
+  },
+  {
+    slug: 'thai',
+    label: 'Thai',
+    image_url:
+      'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4',
+  },
+  {
+    slug: 'vietnamese',
+    label: 'Vietnamese',
+    image_url:
+      'https://images.unsplash.com/photo-1597345637412-9fd611e758f3',
+  },
+]
+
+categories.each do |category|
+  Category.create(category)
 end
