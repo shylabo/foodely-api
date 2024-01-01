@@ -203,3 +203,62 @@ categories = [
 categories.each do |category|
   Category.create(category)
 end
+
+# =============================
+# Allergy
+# =============================
+
+allergies = [
+  {
+    slug: 'dairy',
+    label: 'Dairy',
+  },
+  {
+    slug: 'egg',
+    label: 'Egg',
+  },
+  {
+    slug: 'gluten',
+    label: 'Gluten',
+  },
+  {
+    slug: 'grain',
+    label: 'Grain',
+  },
+  {
+    slug: 'peanut',
+    label: 'Peanut',
+  },
+  {
+    slug: 'seafood',
+    label: 'Seafood',
+  },
+  {
+    slug: 'sesame',
+    label: 'Sesame',
+  },
+  {
+    slug: 'shellfish',
+    label: 'Shellfish',
+  },
+  {
+    slug: 'soy',
+    label: 'Soy',
+  },
+  {
+    slug: 'sulfite',
+    label: 'Sulfite',
+  },
+  {
+    slug: 'tree-nut',
+    label: 'Tree Nut',
+  },
+  {
+    slug: 'wheat',
+    label: 'Wheat',
+  },
+]
+
+allergies.each do |allergy|
+  Allergy.create(allergy)
+end
