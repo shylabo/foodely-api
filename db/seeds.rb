@@ -41,3 +41,16 @@ countries = [
 countries.each do |country|
   Country.create(country)
 end
+
+cities = [
+  { country_code: 'ca', slug: 'vancouver', label: 'Vancouver'},
+  { country_code: 'ca', slug: 'calgary', label: 'Calgary'},
+  { country_code: 'ca', slug: 'edmonton', label: 'Edmonton'},
+  { country_code: 'ca', slug: 'ottawa', label: 'Ottawa'},
+  { country_code: 'ca', slug: 'winnipeg', label: 'Winnipeg'},
+  { country_code: 'ca', slug: 'quebec', label: 'Quebec'},
+]
+
+cities.each do |city|
+  City.create(city)
+end

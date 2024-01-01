@@ -1,0 +1,91 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://docs.rubocop.org/rubocop/configuration
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake,yarn}'
+
+# Commonly used screens these days easily fit more than 80 characters.
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - '*.html.haml'
+
+# Too short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class
+Metrics/MethodLength:
+  Max: 20
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+# RSpec examples require many lines to Arrange, Act and Assert properly.
+Metrics/BlockLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+Metrics/ModuleLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+
+# Not require a top-level documentation of classes and modules
+Style/Documentation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/**/*'
+    - 'spec/requests/**/*'
+
+RSpec/ExampleLength:
+  CountAsOne: ['array', 'hash', 'heredoc', 'method_call']
+
+Lint/UnreachableLoop:
+  AllowedPatterns:
+    - '^maybe_.*'
