@@ -1,5 +1,5 @@
 class AllergiesController < ApplicationController
-  before_action :set_allergy, only: %i[ show update destroy ]
+  before_action :set_allergy, only: %i[show update destroy]
 
   # GET /allergies
   def index
@@ -39,13 +39,14 @@ class AllergiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_allergy
-      @allergy = Allergy.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def allergy_params
-      params.require(:allergy).permit(:slug, :label)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_allergy
+    @allergy = Allergy.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def allergy_params
+    params.require(:allergy).permit(:slug, :label)
+  end
 end
