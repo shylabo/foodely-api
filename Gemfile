@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.2.2'
 
 gem 'bootsnap', require: false
+gem 'devise'
+gem 'devise_token_auth', '>= 1.2.0', git: 'https://github.com/lynndylanhurley/devise_token_auth'
+
 gem 'puma', '>= 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.1.2'
