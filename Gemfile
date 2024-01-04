@@ -11,7 +11,6 @@ gem 'devise_token_auth', '>= 1.2.0', git: 'https://github.com/lynndylanhurley/de
 gem 'puma', '>= 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.1.2'
-gem 'sqlite3', '~> 1.4'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development do
@@ -19,8 +18,13 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+end
+
+group :production do
+  gem 'pg', '~> 1.4'
 end
