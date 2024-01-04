@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :cities
       resources :countries
+      resources :restaurants
 
       get "up" => "rails/health#show", as: :rails_health_check
     end

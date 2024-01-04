@@ -262,3 +262,38 @@ allergies = [
 allergies.each do |allergy|
   Allergy.create(allergy)
 end
+
+# =============================
+# Restaurant
+# =============================
+
+japanese_category = Category.find_or_create_by(slug: 'japanese')
+italian_category = Category.find_or_create_by(slug: 'italian')
+
+egg_allergy = Allergy.find_or_create_by(slug: 'egg')
+dairy_allergy = Allergy.find_or_create_by(slug: 'dairy')
+
+sushi_place = Restaurant.create(
+  name:             'Sushi Place',
+  slug:             'sushi-place',
+  description:      'Authentic Japanese Sushi',
+  address:          '123 Main Street, City',
+  eye_catch_image:  'https://images.unsplash.com/photo-1611143669185-af224c5e3252',
+  cover_image:      'https://images.unsplash.com/photo-1579871494447-9811cf80d66c',
+  min_order_amount: 20
+)
+sushi_place.categories << japanese_category
+sushi_place.allergies << egg_allergy
+
+italian_pizza = Restaurant.create(
+  name:             'Italian Pizza',
+  slug:             'italian-pizza',
+  description:      'Delicious Italian Pizza',
+  address:          '456 Oak Street, Town',
+  eye_catch_image:  'https://images.unsplash.com/photo-1533777324565-a040eb52facd',
+  cover_image:      'https://images.unsplash.com/photo-1447279506476-3faec8071eee',
+  min_order_amount: 25
+)
+italian_pizza.categories << italian_category
+italian_pizza.allergies << dairy_allergy
+italian_pizza.allergies << egg_allergy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_03_070127) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_04_030409) do
   create_table "allergies", force: :cascade do |t|
     t.string "slug"
     t.string "label"
@@ -41,6 +41,38 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_03_070127) do
     t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "slug"
+    t.string "name"
+    t.string "description"
+    t.string "address"
+    t.string "eye_catch_image"
+    t.string "cover_image"
+    t.integer "min_order_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurants_allergies", id: false, force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allergy_id"], name: "index_restaurants_allergies_on_allergy_id"
+    t.index ["restaurant_id", "allergy_id"], name: "index_restaurants_allergies_on_restaurant_id_and_allergy_id", unique: true
+    t.index ["restaurant_id"], name: "index_restaurants_allergies_on_restaurant_id"
+  end
+
+  create_table "restaurants_categories", id: false, force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_restaurants_categories_on_category_id"
+    t.index ["restaurant_id", "category_id"], name: "index_restaurants_categories_on_restaurant_id_and_category_id", unique: true
+    t.index ["restaurant_id"], name: "index_restaurants_categories_on_restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|

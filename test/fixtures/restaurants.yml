@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slug: MyString
+  name: MyString
+  description: MyString
+  address: MyString
+  eye_catch_image: MyString
+  cover_image: MyString
+  min_order_amount: 1
+
+two:
+  slug: MyString
+  name: MyString
+  description: MyString
+  address: MyString
+  eye_catch_image: MyString
+  cover_image: MyString
+  min_order_amount: 1
