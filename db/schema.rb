@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_04_030409) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_04_045733) do
   create_table "allergies", force: :cascade do |t|
     t.string "slug"
     t.string "label"
@@ -41,6 +41,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_030409) do
     t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "eye_catch_image"
+    t.decimal "price"
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
+  end
+
+  create_table "menu_items_allergies", id: false, force: :cascade do |t|
+    t.integer "menu_item_id"
+    t.integer "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allergy_id"], name: "index_menu_items_allergies_on_allergy_id"
+    t.index ["menu_item_id", "allergy_id"], name: "index_menu_items_allergies_on_menu_item_id_and_allergy_id", unique: true
+    t.index ["menu_item_id"], name: "index_menu_items_allergies_on_menu_item_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -100,4 +121,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_04_030409) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "menu_items", "restaurants"
 end

@@ -7,14 +7,16 @@ module Api
 
       # GET /restaurants
       def index
-        @restaurants = Restaurant.includes(:categories, :allergies).all
+        @restaurants = Restaurant.includes(:categories, :allergies, :menu_items).all
 
-        render json: @restaurants.as_json(include: { categories: {}, allergies: {} })
+        render json: @restaurants.as_json(include: { categories: {}, allergies: {},
+        menu_items: { include: :allergies }, })
       end
 
       # GET /restaurants/1
       def show
-        render json: @restaurant
+        render json: @restaurant.as_json(include: { categories: {}, allergies: {},
+menu_items: { include: :allergies }, })
       end
 
       # POST /restaurants
@@ -46,7 +48,7 @@ module Api
 
       # Use callbacks to share common setup or constraints between actions.
       def set_restaurant
-        @restaurant = Restaurant.find(params[:id])
+        @restaurant = Restaurant.includes(:categories, :allergies, :menu_items).find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.

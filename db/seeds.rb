@@ -297,3 +297,33 @@ italian_pizza = Restaurant.create(
 italian_pizza.categories << italian_category
 italian_pizza.allergies << dairy_allergy
 italian_pizza.allergies << egg_allergy
+
+# =============================
+# Menu
+# =============================
+menu_items = [
+  {
+    name:            'Sushi Roll',
+    description:     'Delicious sushi roll',
+    price:           8.99,
+    eye_catch_image: 'https://images.unsplash.com/photo-1676037150304-e4c4a1d585f7',
+    allergies:       [egg_allergy],
+  },
+  {
+    name:            'Sashimi Plate',
+    description:     'Fresh sashimi assortment',
+    price:           12.99,
+    eye_catch_image: 'https://images.unsplash.com/photo-1534256958597-7fe685cbd745',
+    allergies:       [egg_allergy],
+  },
+  {
+    name:            'Tempura',
+    description:     'Crispy tempura assortment',
+    eye_catch_image: 'https://images.unsplash.com/photo-1651328236028-77b585d3f4e5',
+    price:           10.99,
+  },
+]
+
+menu_items.each do |item|
+  sushi_place.menu_items.create(item)
+end
